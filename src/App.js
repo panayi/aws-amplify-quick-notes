@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Auth } from "aws-amplify";
+import Amplify, { Auth } from 'aws-amplify';
 import { Authenticator } from "aws-amplify-react";
 import styled from "@emotion/styled";
-
-import awsExports from "./aws-exports";
 import Screens from "./components/Screens";
+import aws_exports from './aws-exports';
+Amplify.configure(aws_exports);
 
 const Title = styled("h1")`
   text-align: center;
@@ -74,7 +74,6 @@ function App() {
             checkLoggedIn();
           }
         }}
-        amplifyConfig={awsExports}
         theme={theme}
       />
     </>
